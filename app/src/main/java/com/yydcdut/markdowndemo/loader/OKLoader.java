@@ -28,7 +28,6 @@ public class OKLoader implements RxMDImageLoader {
     @Nullable
     @Override
     public byte[] loadSync(@NonNull String url) throws IOException {
-        byte[] bytes = null;
         switch (Scheme.ofUri(url)) {
             case HTTP:
             case HTTPS:
@@ -41,14 +40,14 @@ public class OKLoader implements RxMDImageLoader {
                 return drawable(url);
             case UNKNOWN:
             default:
-                return bytes;
+                return null;
         }
     }
 
     @Nullable
     private static byte[] http(@NonNull String url) throws IOException {
         ByteArrayOutputStream out = null;
-        byte[] bytes = null;
+        byte[] bytes;
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder().url(url).build();
         Response response = client.newCall(request).execute();
@@ -61,7 +60,7 @@ public class OKLoader implements RxMDImageLoader {
     @Nullable
     private static byte[] local(@NonNull String url) throws IOException {
         String path = Scheme.FILE.crop(url);
-        InputStream inputStream = null;
+        InputStream inputStream;
         inputStream = new FileInputStream(path);
         byte[] bytes = getBytes(inputStream);
         closeStream(inputStream);
@@ -71,7 +70,7 @@ public class OKLoader implements RxMDImageLoader {
     @Nullable
     private static byte[] getBytes(@NonNull InputStream inputStream) throws IOException {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
-        byte[] bytes = null;
+        byte[] bytes;
         int i;
         while ((i = inputStream.read()) != -1) {
             out.write(i);

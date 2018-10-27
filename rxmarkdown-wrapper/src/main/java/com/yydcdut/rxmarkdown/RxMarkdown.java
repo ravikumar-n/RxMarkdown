@@ -23,9 +23,9 @@ import com.yydcdut.markdown.MarkdownEditText;
 import com.yydcdut.markdown.syntax.SyntaxFactory;
 import com.yydcdut.markdown.syntax.edit.EditFactory;
 import com.yydcdut.markdown.syntax.text.TextFactory;
+import io.reactivex.Observable;
+import io.reactivex.functions.Function;
 
-import rx.Observable;
-import rx.functions.Func1;
 
 /**
  * RxMarkdown for TextView:
@@ -51,7 +51,6 @@ import rx.functions.Func1;
  * Created by yuyidong on 16/5/3.
  */
 public class RxMarkdown {
-    private static final String TAG = RxMarkdown.class.getName();
     private String mContent;
     private MarkdownEditText mMarkdownEditText;
     private Context mContext;
@@ -120,9 +119,9 @@ public class RxMarkdown {
     public Observable<CharSequence> intoObservable() {
         if (mContent != null) {
             return Observable.just(mContent)
-                    .map(new Func1<String, CharSequence>() {
+                    .map(new Function<String, CharSequence>() {
                         @Override
-                        public CharSequence call(String s) {
+                        public CharSequence apply(String s) {
                             if (mSyntaxFactory != null) {
                                 MarkdownConfiguration config = getMarkdownConfiguration();
                                 CharSequence charSequence = mSyntaxFactory.parse(s, config);
@@ -133,9 +132,9 @@ public class RxMarkdown {
                     });
         } else {
             return Observable.just(mMarkdownEditText)
-                    .map(new Func1<MarkdownEditText, CharSequence>() {
+                    .map(new Function<MarkdownEditText, CharSequence>() {
                         @Override
-                        public CharSequence call(MarkdownEditText markdownEditText) {
+                        public CharSequence apply(MarkdownEditText markdownEditText) {
                             if (mSyntaxFactory == null) {
                                 return markdownEditText.getText();
                             }

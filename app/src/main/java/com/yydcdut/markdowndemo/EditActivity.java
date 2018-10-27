@@ -22,6 +22,11 @@ import com.yydcdut.markdowndemo.view.HorizontalEditScrollView;
 import com.yydcdut.rxmarkdown.RxMDConfiguration;
 import com.yydcdut.rxmarkdown.RxMDEditText;
 import com.yydcdut.rxmarkdown.RxMarkdown;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.observers.DisposableObserver;
+import io.reactivex.schedulers.Schedulers;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -30,11 +35,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import rx.Observable;
-import rx.Subscriber;
-import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 /**
  * Created by yuyidong on 16/7/23.
@@ -47,7 +47,7 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
     private FloatingActionButton mFloatingActionButton;
 
     private Observable<CharSequence> mObservable;
-    private Subscription mSubscription;
+    private Disposable mDisposable;
     private HorizontalEditScrollView mHorizontalEditScrollView;
     private int mShortestDistance = -1;
 
@@ -131,11 +131,10 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
                 .subscribeOn(Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread());
         final long time = System.currentTimeMillis();
-        mSubscription = mObservable
-                .subscribe(new Subscriber<CharSequence>() {
+        mDisposable = mObservable
+                .subscribeWith(new DisposableObserver<CharSequence>() {
                     @Override
-                    public void onCompleted() {
-
+                    public void onComplete() {
                     }
 
                     @Override
@@ -169,12 +168,12 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_enable) {
             if (isRx) {
-                if (mSubscription != null) {
+                if (mDisposable != null) {
                     final long time = System.currentTimeMillis();
-                    mSubscription = mObservable
-                            .subscribe(new Subscriber<CharSequence>() {
+                    mDisposable = mObservable
+                            .subscribeWith(new DisposableObserver<CharSequence>() {
                                 @Override
-                                public void onCompleted() {
+                                public void onComplete() {
                                 }
 
                                 @Override
@@ -197,9 +196,9 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
             return true;
         } else if (id == R.id.action_disable) {
             if (isRx) {
-                if (mSubscription != null) {
-                    mSubscription.unsubscribe();
-                    mSubscription = null;
+                if (mDisposable != null) {
+                    mDisposable.dispose();
+                    mDisposable = null;
                     mRxMDEditText.clear();
                 }
             } else {
