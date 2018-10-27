@@ -52,7 +52,7 @@ class ImageSyntax extends TextSyntaxAdapter {
 
     @Override
     boolean isMatch(@NonNull String text) {
-        return contains(text) ? true : Pattern.compile(PATTERN).matcher(text).matches();
+        return contains(text) || Pattern.compile(PATTERN).matcher(text).matches();
     }
 
     @NonNull

@@ -333,10 +333,7 @@ class ListLive extends EditLive {
         if (after != 1 || before != 0 || start >= editable.length()) {
             return false;
         }
-        if (editable.charAt(start) == '\n') {
-            return true;
-        }
-        return false;
+      return editable.charAt(start) == '\n';
     }
 
     /**
@@ -352,10 +349,7 @@ class ListLive extends EditLive {
         if (before != 1 || after != 0) {
             return false;
         }
-        if (editable.charAt(start) == '\n') {
-            return true;
-        }
-        return false;
+      return editable.charAt(start) == '\n';
     }
 
     /**
@@ -528,15 +522,16 @@ class ListLive extends EditLive {
         MDUnOrderListSpan mdUnOrderListSpan = getUnOrderListBeginning(editable, start, before, after);
         if (mdOrderListSpan != null) {
             int spanStart = editable.getSpanStart(mdOrderListSpan);
-            if (start <= spanStart ||
-                    (start >= spanStart && start <= (spanStart + mdOrderListSpan.getNested() + String.valueOf(mdOrderListSpan.getNumber()).length() + 2))) {//2 --> ". "
-                return true;
-            }
+          return start <= spanStart ||
+              (start >= spanStart && start <= (spanStart
+                  + mdOrderListSpan.getNested()
+                  + String.valueOf(mdOrderListSpan.getNumber()).length()
+                  + 2));
         } else if (mdUnOrderListSpan != null) {
             int spanStart = editable.getSpanStart(mdUnOrderListSpan);
-            if (start <= spanStart || (start >= spanStart && start <= (spanStart + mdUnOrderListSpan.getNested() + 2))) {//2 --> "(-/+/*) "
-                return true;
-            }
+          return start <= spanStart || (start >= spanStart && start <= (spanStart
+              + mdUnOrderListSpan.getNested()
+              + 2));
         }
         return false;
     }
@@ -702,11 +697,7 @@ class ListLive extends EditLive {
         if (isNumber) {
             if (Character.isDigit(c)) {
                 return isOrderList(s, next + 1, true);
-            } else if (c == '.') {
-                return true;
-            } else {
-                return false;
-            }
+            } else return c == '.';
         } else if (c == ' ') {
             return isOrderList(s, next + 1, false);
         } else if (Character.isDigit(c)) {
@@ -730,11 +721,7 @@ class ListLive extends EditLive {
         }
         if (hasKey) {
             char c = s.charAt(next);
-            if (c == ' ') {
-                return true;
-            } else {
-                return false;
-            }
+          return c == ' ';
         } else {
             char c = s.charAt(next);
             if (c == '+' || c == '-' || c == '*') {
@@ -822,10 +809,7 @@ class ListLive extends EditLive {
         }
         int position = TextHelper.findBeforeNewLineChar(editable, start) + 1;
         int totalPosition = position + mdOrderListSpan.getNested() + String.valueOf(mdOrderListSpan.getNumber()).length() + " ".length();
-        if (totalPosition >= start || start <= position) {
-            return true;
-        }
-        return false;
+      return totalPosition >= start || start <= position;
     }
 
     /**
@@ -848,9 +832,6 @@ class ListLive extends EditLive {
         }
         int position = TextHelper.findBeforeNewLineChar(editable, start) + 1;
         int totalPosition = position + mdUnOrderListSpan.getNested() + "* ".length();
-        if (totalPosition >= start || start <= position) {
-            return true;
-        }
-        return false;
+      return totalPosition >= start || start <= position;
     }
 }

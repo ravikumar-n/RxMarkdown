@@ -59,6 +59,6 @@ public class LangTex extends Lang {
     }
 
     public static List<String> getFileExtensions() {
-        return Arrays.asList(new String[]{"latex", "tex"});
+        return Arrays.asList("latex", "tex");
     }
 }

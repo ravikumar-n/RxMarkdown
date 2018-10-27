@@ -59,18 +59,18 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle("Edit");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mFloatingActionButton = (FloatingActionButton) findViewById(R.id.fab);
+        mFloatingActionButton = findViewById(R.id.fab);
         mFloatingActionButton.setOnClickListener(this);
-        EditScrollView editScrollView = (EditScrollView) findViewById(R.id.edit_scroll);
+        EditScrollView editScrollView = findViewById(R.id.edit_scroll);
         editScrollView.setOnScrollChangedListener(this);
-        mRxMDEditText = (RxMDEditText) findViewById(R.id.edit_rx);
-        mMarkdownEditText = (MarkdownEditText) findViewById(R.id.edit_md);
-        mHorizontalEditScrollView = (HorizontalEditScrollView) findViewById(R.id.scroll_edit);
+        mRxMDEditText = findViewById(R.id.edit_rx);
+        mMarkdownEditText = findViewById(R.id.edit_md);
+        mHorizontalEditScrollView = findViewById(R.id.scroll_edit);
         isRx = getIntent().getBooleanExtra("is_rx", false);
         if (isRx) {
             mRxMDEditText.setVisibility(View.VISIBLE);

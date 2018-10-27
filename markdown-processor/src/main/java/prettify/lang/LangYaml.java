@@ -54,6 +54,6 @@ public class LangYaml extends Lang {
     }
 
     public static List<String> getFileExtensions() {
-        return Arrays.asList(new String[]{"yaml", "yml"});
+        return Arrays.asList("yaml", "yml");
     }
 }

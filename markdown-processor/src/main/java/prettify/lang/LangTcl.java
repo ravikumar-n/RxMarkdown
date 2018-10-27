@@ -68,6 +68,6 @@ public class LangTcl extends Lang {
     }
 
     public static List<String> getFileExtensions() {
-        return Arrays.asList(new String[]{"tcl"});
+        return Arrays.asList("tcl");
     }
 }

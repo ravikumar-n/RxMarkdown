@@ -60,6 +60,6 @@ public class LangPascal extends Lang {
     }
 
     public static List<String> getFileExtensions() {
-        return Arrays.asList(new String[]{"pascal"});
+        return Arrays.asList("pascal");
     }
 }

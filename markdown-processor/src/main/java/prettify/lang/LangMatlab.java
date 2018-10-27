@@ -105,11 +105,11 @@ public class LangMatlab extends Lang {
         setShortcutStylePatterns(_shortcutStylePatterns);
         setFallthroughStylePatterns(_fallthroughStylePatterns);
 
-        setExtendedLangs(Arrays.asList(new Lang[]{new LangMatlabIdentifier(), new LangMatlabOperator()}));
+        setExtendedLangs(Arrays.asList(new LangMatlabIdentifier(), new LangMatlabOperator()));
     }
 
     public static List<String> getFileExtensions() {
-        return Arrays.asList(new String[]{"matlab"});
+        return Arrays.asList("matlab");
     }
 
     protected static class LangMatlabIdentifier extends Lang {
@@ -143,7 +143,7 @@ public class LangMatlab extends Lang {
         }
 
         public static List<String> getFileExtensions() {
-            return Arrays.asList(new String[]{"matlab-identifiers"});
+            return Arrays.asList("matlab-identifiers");
         }
     }
 
@@ -167,7 +167,7 @@ public class LangMatlab extends Lang {
         }
 
         public static List<String> getFileExtensions() {
-            return Arrays.asList(new String[]{"matlab-operators"});
+            return Arrays.asList("matlab-operators");
         }
     }
 }

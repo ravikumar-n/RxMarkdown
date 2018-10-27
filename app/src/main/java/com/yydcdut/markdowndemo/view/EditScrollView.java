@@ -34,7 +34,7 @@ public class EditScrollView extends ScrollView {
         mOnScrollChangedListener = onScrollChangedListener;
     }
 
-    public static interface OnScrollChangedListener {
+    public interface OnScrollChangedListener {
         void onScrollChanged(int l, int t, int oldl, int oldt);
     }
 }

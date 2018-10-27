@@ -74,6 +74,6 @@ public class LangVb extends Lang {
     }
 
     public static List<String> getFileExtensions() {
-        return Arrays.asList(new String[]{"vb", "vbs"});
+        return Arrays.asList("vb", "vbs");
     }
 }

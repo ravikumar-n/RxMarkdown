@@ -70,6 +70,6 @@ public class LangGo extends Lang {
     }
 
     public static List<String> getFileExtensions() {
-        return Arrays.asList(new String[]{"go"});
+        return Arrays.asList("go");
     }
 }

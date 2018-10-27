@@ -64,6 +64,6 @@ public class LangScala extends Lang {
     }
 
     public static List<String> getFileExtensions() {
-        return Arrays.asList(new String[]{"scala"});
+        return Arrays.asList("scala");
     }
 }

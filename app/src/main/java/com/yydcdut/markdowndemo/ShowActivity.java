@@ -51,13 +51,13 @@ public class ShowActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle("Show");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        RxMDTextView rxMDTextView = (RxMDTextView) findViewById(R.id.txt_md_show_rx);
+        RxMDTextView rxMDTextView = findViewById(R.id.txt_md_show_rx);
         rxMDTextView.setMovementMethod(LinkMovementMethod.getInstance());
-        MarkdownTextView markdownTextView = (MarkdownTextView) findViewById(R.id.txt_md_show);
+        MarkdownTextView markdownTextView = findViewById(R.id.txt_md_show);
         markdownTextView.setMovementMethod(LinkMovementMethod.getInstance());
         String content = getIntent().getStringExtra(EXTRA_CONTENT);
         boolean isRx = getIntent().getBooleanExtra(EXTRA_RX, false);

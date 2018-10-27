@@ -150,6 +150,6 @@ class HorizontalRulesLive extends EditLive {
 
     private boolean existForegroundColorSpan(int start, int end) {
         ForegroundColorSpan[] foregroundColorSpans = mMarkdownEditText.getText().getSpans(start, end, ForegroundColorSpan.class);
-        return foregroundColorSpans != null ? foregroundColorSpans.length == 0 ? false : true : false;
+        return foregroundColorSpans != null && foregroundColorSpans.length != 0;
     }
 }

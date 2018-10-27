@@ -100,6 +100,6 @@ public class LangErlang extends Lang {
     }
 
     public static List<String> getFileExtensions() {
-        return Arrays.asList(new String[]{"erlang", "erl"});
+        return Arrays.asList("erlang", "erl");
     }
 }

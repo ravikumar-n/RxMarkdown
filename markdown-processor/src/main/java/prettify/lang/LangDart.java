@@ -90,6 +90,6 @@ public class LangDart extends Lang {
     }
 
     public static List<String> getFileExtensions() {
-        return Arrays.asList(new String[]{"dart"});
+        return Arrays.asList("dart");
     }
 }

@@ -41,7 +41,8 @@ public class PrettifyParser implements Parser {
         for (int i = 0, iEnd = decorations.size(); i < iEnd; i += 2) {
             int endPos = i + 2 < iEnd ? (Integer) decorations.get(i + 2) : content.length();
             int startPos = (Integer) decorations.get(i);
-            returnList.add(new ParseResult(startPos, endPos - startPos, Arrays.asList(new String[]{(String) decorations.get(i + 1)})));
+            returnList.add(new ParseResult(startPos, endPos - startPos, Arrays.asList(
+                (String) decorations.get(i + 1))));
         }
 
         return returnList;

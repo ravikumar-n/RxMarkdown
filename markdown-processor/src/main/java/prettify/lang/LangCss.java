@@ -70,11 +70,11 @@ public class LangCss extends Lang {
         setShortcutStylePatterns(_shortcutStylePatterns);
         setFallthroughStylePatterns(_fallthroughStylePatterns);
 
-        setExtendedLangs(Arrays.asList(new Lang[]{new LangCssKeyword(), new LangCssString()}));
+        setExtendedLangs(Arrays.asList(new LangCssKeyword(), new LangCssString()));
     }
 
     public static List<String> getFileExtensions() {
-        return Arrays.asList(new String[]{"css"});
+        return Arrays.asList("css");
     }
 
     protected static class LangCssKeyword extends Lang {
@@ -90,7 +90,7 @@ public class LangCss extends Lang {
         }
 
         public static List<String> getFileExtensions() {
-            return Arrays.asList(new String[]{"css-kw"});
+            return Arrays.asList("css-kw");
         }
     }
 
@@ -107,7 +107,7 @@ public class LangCss extends Lang {
         }
 
         public static List<String> getFileExtensions() {
-            return Arrays.asList(new String[]{"css-str"});
+            return Arrays.asList("css-str");
         }
     }
 }

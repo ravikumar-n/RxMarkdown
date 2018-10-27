@@ -47,7 +47,9 @@ class CodeSyntax extends TextSyntaxAdapter {
 
     @Override
     boolean isMatch(@NonNull String text) {
-        return text.contains(SyntaxKey.KEY_CODE) ? Pattern.compile(PATTERN).matcher(text).matches() : false;
+        return text.contains(SyntaxKey.KEY_CODE) && Pattern.compile(PATTERN)
+            .matcher(text)
+            .matches();
     }
 
     @NonNull
@@ -82,7 +84,7 @@ class CodeSyntax extends TextSyntaxAdapter {
         while (true) {
             int positionHeader = findPosition(tmpTotal, ssb, tmp);
             if (positionHeader == -1) {
-                tmp.append(tmpTotal.substring(0, tmpTotal.length()));
+                tmp.append(tmpTotal);
                 break;
             }
             tmp.append(tmpTotal.substring(0, positionHeader));
@@ -98,7 +100,7 @@ class CodeSyntax extends TextSyntaxAdapter {
                 ssb.delete(tmp.length(), tmp.length() + SyntaxKey.KEY_CODE.length());
             } else {
                 tmp.append(SyntaxKey.KEY_CODE);
-                tmp.append(tmpTotal.substring(0, tmpTotal.length()));
+                tmp.append(tmpTotal);
                 break;
             }
             tmpTotal = tmpTotal.substring(positionFooter + SyntaxKey.KEY_CODE.length(), tmpTotal.length());

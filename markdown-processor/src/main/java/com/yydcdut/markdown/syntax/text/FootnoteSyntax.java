@@ -45,7 +45,7 @@ class FootnoteSyntax extends TextSyntaxAdapter {
 
     @Override
     boolean isMatch(@NonNull String text) {
-        return contains(text) ? Pattern.compile(PATTERN).matcher(text).matches() : false;
+        return contains(text) && Pattern.compile(PATTERN).matcher(text).matches();
     }
 
     @NonNull
@@ -119,7 +119,7 @@ class FootnoteSyntax extends TextSyntaxAdapter {
         while (true) {
             int positionHeader = findBeginPosition(tmpTotal, ssb, tmp);
             if (positionHeader == -1) {
-                tmp.append(tmpTotal.substring(0, tmpTotal.length()));
+                tmp.append(tmpTotal);
                 break;
             }
             tmp.append(tmpTotal.substring(0, positionHeader));
@@ -133,7 +133,7 @@ class FootnoteSyntax extends TextSyntaxAdapter {
                 ssb.delete(tmp.length(), tmp.length() + SyntaxKey.KEY_FOOTNOTE_RIGHT.length());
             } else {
                 tmp.append(SyntaxKey.KEY_FOOTNOTE_LEFT);
-                tmp.append(tmpTotal.substring(0, tmpTotal.length()));
+                tmp.append(tmpTotal);
                 break;
             }
             tmpTotal = tmpTotal.substring(positionFooter + SyntaxKey.KEY_FOOTNOTE_LEFT.length(), tmpTotal.length());

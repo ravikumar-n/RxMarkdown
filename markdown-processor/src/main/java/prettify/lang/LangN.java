@@ -74,6 +74,6 @@ public class LangN extends Lang {
     }
 
     public static List<String> getFileExtensions() {
-        return Arrays.asList(new String[]{"n", "nemerle"});
+        return Arrays.asList("n", "nemerle");
     }
 }

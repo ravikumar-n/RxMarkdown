@@ -66,6 +66,6 @@ public class LangR extends Lang {
     }
 
     public static List<String> getFileExtensions() {
-        return Arrays.asList(new String[]{"r", "s", "R", "S", "Splus"});
+        return Arrays.asList("r", "s", "R", "S", "Splus");
     }
 }

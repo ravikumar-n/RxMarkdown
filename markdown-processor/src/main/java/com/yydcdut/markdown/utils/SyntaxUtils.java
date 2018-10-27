@@ -64,7 +64,7 @@ public class SyntaxUtils {
         while (true) {
             int positionHeader = SyntaxUtils.findPosition(key, tmpTotal, ssb, tmp);
             if (positionHeader == -1) {
-                tmp.append(tmpTotal.substring(0, tmpTotal.length()));
+                tmp.append(tmpTotal);
                 break;
             }
             tmp.append(tmpTotal.substring(0, positionHeader));
@@ -78,7 +78,7 @@ public class SyntaxUtils {
                 ssb.delete(tmp.length(), tmp.length() + keyLength);
             } else {
                 tmp.append(key);
-                tmp.append(tmpTotal.substring(0, tmpTotal.length()));
+                tmp.append(tmpTotal);
                 break;
             }
             tmpTotal = tmpTotal.substring(positionFooter + keyLength, tmpTotal.length());

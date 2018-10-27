@@ -61,7 +61,7 @@ public class LangWiki extends Lang {
     }
 
     public static List<String> getFileExtensions() {
-        return Arrays.asList(new String[]{"wiki"});
+        return Arrays.asList("wiki");
     }
 
     protected static class LangWikiMeta extends Lang {
@@ -77,7 +77,7 @@ public class LangWiki extends Lang {
         }
 
         public static List<String> getFileExtensions() {
-            return Arrays.asList(new String[]{"wiki.meta"});
+            return Arrays.asList("wiki.meta");
         }
     }
 }

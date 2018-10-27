@@ -42,7 +42,9 @@ class StrikeThroughSyntax extends TextSyntaxAdapter {
 
     @Override
     boolean isMatch(@NonNull String text) {
-        return text.contains(SyntaxKey.KEY_STRIKE_THROUGH) ? Pattern.compile(PATTERN).matcher(text).matches() : false;
+        return text.contains(SyntaxKey.KEY_STRIKE_THROUGH) && Pattern.compile(PATTERN)
+            .matcher(text)
+            .matches();
     }
 
     @NonNull

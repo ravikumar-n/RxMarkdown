@@ -229,7 +229,7 @@ public class Prettify {
             decorateSourceMap.put("cStyleComments", true);
             decorateSourceMap.put("multiLineStrings", true);
             decorateSourceMap.put("regexLiterals", true);
-            registerLangHandler(sourceDecorator(decorateSourceMap), Arrays.asList(new String[]{"default-code"}));
+            registerLangHandler(sourceDecorator(decorateSourceMap), Arrays.asList("default-code"));
 
             List<List<Object>> shortcutStylePatterns, fallthroughStylePatterns;
 
@@ -248,7 +248,8 @@ public class Prettify {
             // Contains unescaped stylesheet content
             fallthroughStylePatterns.add(Arrays.asList(new Object[]{"lang-css", Pattern.compile("^<style\\b[^>]*>([\\s\\S]*?)(<\\/style\\b[^>]*>)", Pattern.CASE_INSENSITIVE)}));
             fallthroughStylePatterns.add(Arrays.asList(new Object[]{"lang-in.tag", Pattern.compile("^(<\\/?[a-z][^<>]*>)", Pattern.CASE_INSENSITIVE)}));
-            registerLangHandler(new CreateSimpleLexer(shortcutStylePatterns, fallthroughStylePatterns), Arrays.asList(new String[]{"default-markup", "htm", "html", "mxml", "xhtml", "xml", "xsl"}));
+            registerLangHandler(new CreateSimpleLexer(shortcutStylePatterns, fallthroughStylePatterns), Arrays.asList(
+                "default-markup", "htm", "html", "mxml", "xhtml", "xml", "xsl"));
 
             shortcutStylePatterns = new ArrayList<List<Object>>();
             fallthroughStylePatterns = new ArrayList<List<Object>>();
@@ -264,23 +265,26 @@ public class Prettify {
             fallthroughStylePatterns.add(Arrays.asList(new Object[]{"lang-css", Pattern.compile("^style\\s*=\\s*\\\"([^\\\"]+)\\\"", Pattern.CASE_INSENSITIVE)}));
             fallthroughStylePatterns.add(Arrays.asList(new Object[]{"lang-css", Pattern.compile("^style\\s*=\\s*\\'([^\\']+)\\'", Pattern.CASE_INSENSITIVE)}));
             fallthroughStylePatterns.add(Arrays.asList(new Object[]{"lang-css", Pattern.compile("^style\\s*=\\s\\*([^\\\"\\'>\\s]+)", Pattern.CASE_INSENSITIVE)}));
-            registerLangHandler(new CreateSimpleLexer(shortcutStylePatterns, fallthroughStylePatterns), Arrays.asList(new String[]{"in.tag"}));
+            registerLangHandler(new CreateSimpleLexer(shortcutStylePatterns, fallthroughStylePatterns), Arrays.asList(
+                "in.tag"));
 
             shortcutStylePatterns = new ArrayList<List<Object>>();
             fallthroughStylePatterns = new ArrayList<List<Object>>();
             fallthroughStylePatterns.add(Arrays.asList(new Object[]{PR_ATTRIB_VALUE, Pattern.compile("^[\\s\\S]+")}));
-            registerLangHandler(new CreateSimpleLexer(shortcutStylePatterns, fallthroughStylePatterns), Arrays.asList(new String[]{"uq.val"}));
+            registerLangHandler(new CreateSimpleLexer(shortcutStylePatterns, fallthroughStylePatterns), Arrays.asList(
+                "uq.val"));
 
             decorateSourceMap = new HashMap<String, Object>();
             decorateSourceMap.put("keywords", CPP_KEYWORDS);
             decorateSourceMap.put("hashComments", true);
             decorateSourceMap.put("cStyleComments", true);
             decorateSourceMap.put("types", C_TYPES);
-            registerLangHandler(sourceDecorator(decorateSourceMap), Arrays.asList(new String[]{"c", "cc", "cpp", "cxx", "cyc", "m"}));
+            registerLangHandler(sourceDecorator(decorateSourceMap), Arrays.asList("c", "cc", "cpp",
+                "cxx", "cyc", "m"));
 
             decorateSourceMap = new HashMap<String, Object>();
             decorateSourceMap.put("keywords", "null,true,false");
-            registerLangHandler(sourceDecorator(decorateSourceMap), Arrays.asList(new String[]{"json"}));
+            registerLangHandler(sourceDecorator(decorateSourceMap), Arrays.asList("json"));
 
             decorateSourceMap = new HashMap<String, Object>();
             decorateSourceMap.put("keywords", CSHARP_KEYWORDS);
@@ -288,45 +292,49 @@ public class Prettify {
             decorateSourceMap.put("cStyleComments", true);
             decorateSourceMap.put("verbatimStrings", true);
             decorateSourceMap.put("types", C_TYPES);
-            registerLangHandler(sourceDecorator(decorateSourceMap), Arrays.asList(new String[]{"cs"}));
+            registerLangHandler(sourceDecorator(decorateSourceMap), Arrays.asList("cs"));
 
             decorateSourceMap = new HashMap<String, Object>();
             decorateSourceMap.put("keywords", JAVA_KEYWORDS);
             decorateSourceMap.put("cStyleComments", true);
-            registerLangHandler(sourceDecorator(decorateSourceMap), Arrays.asList(new String[]{"java"}));
+            registerLangHandler(sourceDecorator(decorateSourceMap), Arrays.asList("java"));
 
             decorateSourceMap = new HashMap<String, Object>();
             decorateSourceMap.put("keywords", SH_KEYWORDS);
             decorateSourceMap.put("hashComments", true);
             decorateSourceMap.put("multiLineStrings", true);
-            registerLangHandler(sourceDecorator(decorateSourceMap), Arrays.asList(new String[]{"bash", "bsh", "csh", "sh"}));
+            registerLangHandler(sourceDecorator(decorateSourceMap), Arrays.asList("bash", "bsh",
+                "csh", "sh"));
 
             decorateSourceMap = new HashMap<String, Object>();
             decorateSourceMap.put("keywords", PYTHON_KEYWORDS);
             decorateSourceMap.put("hashComments", true);
             decorateSourceMap.put("multiLineStrings", true);
             decorateSourceMap.put("tripleQuotedStrings", true);
-            registerLangHandler(sourceDecorator(decorateSourceMap), Arrays.asList(new String[]{"cv", "py", "python"}));
+            registerLangHandler(sourceDecorator(decorateSourceMap), Arrays.asList("cv", "py",
+                "python"));
 
             decorateSourceMap = new HashMap<String, Object>();
             decorateSourceMap.put("keywords", PERL_KEYWORDS);
             decorateSourceMap.put("hashComments", true);
             decorateSourceMap.put("multiLineStrings", true);
             decorateSourceMap.put("regexLiterals", 2);   // multiline regex literals
-            registerLangHandler(sourceDecorator(decorateSourceMap), Arrays.asList(new String[]{"perl", "pl", "pm"}));
+            registerLangHandler(sourceDecorator(decorateSourceMap), Arrays.asList("perl", "pl",
+                "pm"));
 
             decorateSourceMap = new HashMap<String, Object>();
             decorateSourceMap.put("keywords", RUBY_KEYWORDS);
             decorateSourceMap.put("hashComments", true);
             decorateSourceMap.put("multiLineStrings", true);
             decorateSourceMap.put("regexLiterals", true);
-            registerLangHandler(sourceDecorator(decorateSourceMap), Arrays.asList(new String[]{"rb", "ruby"}));
+            registerLangHandler(sourceDecorator(decorateSourceMap), Arrays.asList("rb", "ruby"));
 
             decorateSourceMap = new HashMap<String, Object>();
             decorateSourceMap.put("keywords", JSCRIPT_KEYWORDS);
             decorateSourceMap.put("cStyleComments", true);
             decorateSourceMap.put("regexLiterals", true);
-            registerLangHandler(sourceDecorator(decorateSourceMap), Arrays.asList(new String[]{"javascript", "js"}));
+            registerLangHandler(sourceDecorator(decorateSourceMap), Arrays.asList("javascript",
+                "js"));
 
             decorateSourceMap = new HashMap<String, Object>();
             decorateSourceMap.put("keywords", COFFEE_KEYWORDS);
@@ -335,18 +343,20 @@ public class Prettify {
             decorateSourceMap.put("multilineStrings", true);
             decorateSourceMap.put("tripleQuotedStrings", true);
             decorateSourceMap.put("regexLiterals", true);
-            registerLangHandler(sourceDecorator(decorateSourceMap), Arrays.asList(new String[]{"coffee"}));
+            registerLangHandler(sourceDecorator(decorateSourceMap), Arrays.asList("coffee"));
 
             decorateSourceMap = new HashMap<String, Object>();
             decorateSourceMap.put("keywords", RUST_KEYWORDS);
             decorateSourceMap.put("cStyleComments", true);
             decorateSourceMap.put("multilineStrings", true);
-            registerLangHandler(sourceDecorator(decorateSourceMap), Arrays.asList(new String[]{"rc", "rs", "rust"}));
+            registerLangHandler(sourceDecorator(decorateSourceMap), Arrays.asList("rc", "rs",
+                "rust"));
 
             shortcutStylePatterns = new ArrayList<List<Object>>();
             fallthroughStylePatterns = new ArrayList<List<Object>>();
             fallthroughStylePatterns.add(Arrays.asList(new Object[]{PR_STRING, Pattern.compile("^[\\s\\S]+")}));
-            registerLangHandler(new CreateSimpleLexer(shortcutStylePatterns, fallthroughStylePatterns), Arrays.asList(new String[]{"regex"}));
+            registerLangHandler(new CreateSimpleLexer(shortcutStylePatterns, fallthroughStylePatterns), Arrays.asList(
+                "regex"));
 
             /**
              * Registers a language handler for Protocol Buffers as described at
@@ -364,7 +374,7 @@ public class Prettify {
                     + "syntax,to,true");
             decorateSourceMap.put("types", Pattern.compile("^(bool|(double|s?fixed|[su]?int)(32|64)|float|string)\\b"));
             decorateSourceMap.put("cStyleComments", true);
-            registerLangHandler(sourceDecorator(decorateSourceMap), Arrays.asList(new String[]{"proto"}));
+            registerLangHandler(sourceDecorator(decorateSourceMap), Arrays.asList("proto"));
 
             register(LangAppollo.class);
             register(LangBasic.class);
@@ -514,7 +524,7 @@ public class Prettify {
              * the end.
              * @type {Array.<number|string>}
              */
-            List<Object> decorations = new ArrayList<Object>(Arrays.asList(new Object[]{basePos, PR_PLAIN}));
+            List<Object> decorations = new ArrayList<Object>(Arrays.asList(basePos, PR_PLAIN));
             int pos = 0;  // index into sourceCode
             String[] tokens = Util.match(tokenizer, sourceCode, true);
             Map<String, String> styleCache = new HashMap<String, String>();

@@ -77,6 +77,6 @@ public class LangClj extends Lang {
     }
 
     public static List<String> getFileExtensions() {
-        return Arrays.asList(new String[]{"clj"});
+        return Arrays.asList("clj");
     }
 }

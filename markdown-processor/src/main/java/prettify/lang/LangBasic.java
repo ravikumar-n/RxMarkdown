@@ -41,6 +41,6 @@ public class LangBasic extends Lang {
     }
 
     public static List<String> getFileExtensions() {
-        return Arrays.asList(new String[]{"basic", "cbm"});
+        return Arrays.asList("basic", "cbm");
     }
 }

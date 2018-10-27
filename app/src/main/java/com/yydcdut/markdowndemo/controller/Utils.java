@@ -56,39 +56,23 @@ public class Utils {
 
     public static boolean hasCenterSpan(EditText editText, int start, int end) {
         AlignmentSpan.Standard centerSpan = Utils.getSpans(editText, start, end, AlignmentSpan.Standard.class);
-        if (centerSpan == null) {
-            return false;
-        } else {
-            return true;
-        }
+      return centerSpan != null;
     }
 
     public static boolean hasOrderListSpan(RxMDEditText rxMDEditText, int start, int end) {
         MDOrderListSpan orderListSpan = Utils.getSpans(rxMDEditText, start, end, MDOrderListSpan.class);
-        if (orderListSpan == null) {
-            return false;
-        } else {
-            return true;
-        }
+      return orderListSpan != null;
     }
 
     public static boolean hasUnOrderListSpan(RxMDEditText rxMDEditText, int start, int end) {
         MDUnOrderListSpan unOrderListSpan = Utils.getSpans(rxMDEditText, start, end, MDUnOrderListSpan.class);
-        if (unOrderListSpan == null) {
-            return false;
-        } else {
-            return true;
-        }
+      return unOrderListSpan != null;
     }
 
 
     public static boolean hasTodoDone(RxMDEditText rxMDEditText, int start) {
         CharSequence charSequence = rxMDEditText.getText().subSequence(start, start + "- [x] ".length());
-        if (charSequence.toString().equalsIgnoreCase("- [x] ")) {
-            return true;
-        } else {
-            return false;
-        }
+      return charSequence.toString().equalsIgnoreCase("- [x] ");
     }
 
     public static int safePosition(int position, CharSequence s) {

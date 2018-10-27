@@ -127,7 +127,7 @@ public class CombinePrefixPattern {
         List<List<Integer>> ranges = new ArrayList<List<Integer>>();
         boolean inverse = charsetParts[0] != null && charsetParts[0].equals("^");
 
-        List<String> out = new ArrayList<String>(Arrays.asList(new String[]{"["}));
+        List<String> out = new ArrayList<String>(Arrays.asList("["));
         if (inverse) {
             out.add("^");
         }
@@ -145,17 +145,18 @@ public class CombinePrefixPattern {
                 } else {
                     end = start;
                 }
-                ranges.add(Arrays.asList(new Integer[]{start, end}));
+                ranges.add(Arrays.asList(start, end));
                 // If the range might intersect letters, then expand it.
                 // This case handling is too simplistic.
                 // It does not deal with non-latin case folding.
                 // It works for latin source code identifiers though.
                 if (!(end < 65 || start > 122)) {
                     if (!(end < 65 || start > 90)) {
-                        ranges.add(Arrays.asList(new Integer[]{Math.max(65, start) | 32, Math.min(end, 90) | 32}));
+                        ranges.add(Arrays.asList(Math.max(65, start) | 32, Math.min(end, 90) | 32));
                     }
                     if (!(end < 97 || start > 122)) {
-                        ranges.add(Arrays.asList(new Integer[]{Math.max(97, start) & ~32, Math.min(end, 122) & ~32}));
+                        ranges.add(Arrays.asList(Math.max(97, start) & ~32,
+                            Math.min(end, 122) & ~32));
                     }
                 }
             }
@@ -172,7 +173,7 @@ public class CombinePrefixPattern {
         });
         List<List<Integer>> consolidatedRanges = new ArrayList<List<Integer>>();
 //        List<Integer> lastRange = Arrays.asList(new Integer[]{0, 0});
-        List<Integer> lastRange = new ArrayList<Integer>(Arrays.asList(new Integer[]{0, 0}));
+        List<Integer> lastRange = new ArrayList<Integer>(Arrays.asList(0, 0));
         for (int i = 0; i < ranges.size(); ++i) {
             List<Integer> range = ranges.get(i);
             if (lastRange.get(1) != null && range.get(0) <= lastRange.get(1) + 1) {

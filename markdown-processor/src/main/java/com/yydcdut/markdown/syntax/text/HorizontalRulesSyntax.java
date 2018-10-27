@@ -55,9 +55,7 @@ class HorizontalRulesSyntax extends TextSyntaxAdapter {
             }
         }
         if (text.startsWith(SyntaxKey.KEY_HORIZONTAL_RULES_HYPHEN)) {
-            if (check(text, SyntaxKey.KEY_HORIZONTAL_RULES_HYPHEN_SINGLE)) {
-                return true;
-            }
+          return check(text, SyntaxKey.KEY_HORIZONTAL_RULES_HYPHEN_SINGLE);
         }
         return false;
     }

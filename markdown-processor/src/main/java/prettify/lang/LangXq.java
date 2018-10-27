@@ -76,6 +76,6 @@ public class LangXq extends Lang {
     }
 
     public static List<String> getFileExtensions() {
-        return Arrays.asList(new String[]{"xq", "xquery"});
+        return Arrays.asList("xq", "xquery");
     }
 }

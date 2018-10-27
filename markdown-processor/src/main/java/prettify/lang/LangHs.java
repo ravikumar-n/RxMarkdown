@@ -108,6 +108,6 @@ public class LangHs extends Lang {
     }
 
     public static List<String> getFileExtensions() {
-        return Arrays.asList(new String[]{"hs"});
+        return Arrays.asList("hs");
     }
 }

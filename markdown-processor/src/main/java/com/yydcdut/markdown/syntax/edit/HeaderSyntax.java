@@ -147,15 +147,12 @@ class HeaderSyntax extends EditSyntaxAdapter {
      * @return if matched
      */
     private static boolean matchSpecial(String match) {
-        if (TextUtils.equals(match, SyntaxKey.KEY_0_HEADER)
-                || TextUtils.equals(match, SyntaxKey.KEY_1_HEADER)
-                || TextUtils.equals(match, SyntaxKey.KEY_2_HEADER)
-                || TextUtils.equals(match, SyntaxKey.KEY_3_HEADER)
-                || TextUtils.equals(match, SyntaxKey.KEY_4_HEADER)
-                || TextUtils.equals(match, SyntaxKey.KEY_5_HEADER)) {
-            return true;
-        }
-        return false;
+      return TextUtils.equals(match, SyntaxKey.KEY_0_HEADER)
+          || TextUtils.equals(match, SyntaxKey.KEY_1_HEADER)
+          || TextUtils.equals(match, SyntaxKey.KEY_2_HEADER)
+          || TextUtils.equals(match, SyntaxKey.KEY_3_HEADER)
+          || TextUtils.equals(match, SyntaxKey.KEY_4_HEADER)
+          || TextUtils.equals(match, SyntaxKey.KEY_5_HEADER);
     }
 
     /**

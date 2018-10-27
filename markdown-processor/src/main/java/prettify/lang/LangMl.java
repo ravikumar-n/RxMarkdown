@@ -65,6 +65,6 @@ public class LangMl extends Lang {
     }
 
     public static List<String> getFileExtensions() {
-        return Arrays.asList(new String[]{"fs", "ml"});
+        return Arrays.asList("fs", "ml");
     }
 }

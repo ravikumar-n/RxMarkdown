@@ -70,6 +70,6 @@ public class LangLua extends Lang {
     }
 
     public static List<String> getFileExtensions() {
-        return Arrays.asList(new String[]{"lua"});
+        return Arrays.asList("lua");
     }
 }

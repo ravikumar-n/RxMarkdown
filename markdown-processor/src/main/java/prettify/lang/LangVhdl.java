@@ -62,6 +62,6 @@ public class LangVhdl extends Lang {
     }
 
     public static List<String> getFileExtensions() {
-        return Arrays.asList(new String[]{"vhdl", "vhd"});
+        return Arrays.asList("vhdl", "vhd");
     }
 }

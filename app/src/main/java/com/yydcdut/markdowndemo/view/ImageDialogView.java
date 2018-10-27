@@ -63,11 +63,11 @@ public class ImageDialogView extends LinearLayout implements View.OnClickListene
 
     private void init(Context context) {
         View v = LayoutInflater.from(context).inflate(R.layout.dialog_image, this, true);
-        mTargetImageView = (ImageView) v.findViewById(R.id.img_image);
+        mTargetImageView = v.findViewById(R.id.img_image);
         mTargetImageView.setOnClickListener(this);
-        mWidthEditText = (EditText) v.findViewById(R.id.edit_width);
-        mHeightEditText = (EditText) v.findViewById(R.id.edit_height);
-        mDescriptionEditText = (EditText) v.findViewById(R.id.edit_description);
+        mWidthEditText = v.findViewById(R.id.edit_width);
+        mHeightEditText = v.findViewById(R.id.edit_height);
+        mDescriptionEditText = v.findViewById(R.id.edit_description);
         if (!ImageLoader.getInstance().isInited()) {
             ImageLoaderConfiguration.Builder config = new ImageLoaderConfiguration.Builder(mTargetImageView.getContext());
             config.threadPriority(Thread.NORM_PRIORITY - 2);

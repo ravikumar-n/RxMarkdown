@@ -43,21 +43,21 @@ public class CompareActivity extends AppCompatActivity implements TextWatcher {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compare);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle("Compare");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        HorizontalEditScrollView horizontalEditScrollView = (HorizontalEditScrollView) findViewById(R.id.scroll_edit);
+        HorizontalEditScrollView horizontalEditScrollView = findViewById(R.id.scroll_edit);
         isRx = getIntent().getBooleanExtra("is_rx", false);
 
-        mRxMDEditText = (RxMDEditText) findViewById(R.id.edit_rx);
+        mRxMDEditText = findViewById(R.id.edit_rx);
         mRxMDEditText.addTextChangedListener(this);
         mRxMDEditText.setText(Const.MD_SAMPLE);
-        mRxMDTextView = (RxMDTextView) findViewById(R.id.txt_md_show_rx);
+        mRxMDTextView = findViewById(R.id.txt_md_show_rx);
 
-        mMarkdownEditText = (MarkdownEditText) findViewById(R.id.edit_rx);
+        mMarkdownEditText = findViewById(R.id.edit_rx);
         mMarkdownEditText.addTextChangedListener(this);
-        mMarkdownTextView = (MarkdownTextView) findViewById(R.id.txt_md_show);
+        mMarkdownTextView = findViewById(R.id.txt_md_show);
         mMarkdownEditText.setText(Const.MD_SAMPLE);
 
         if (isRx) {

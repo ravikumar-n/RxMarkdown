@@ -62,6 +62,6 @@ public class LangAppollo extends Lang {
     }
 
     public static List<String> getFileExtensions() {
-        return Arrays.asList(new String[]{"apollo", "agc", "aea"});
+        return Arrays.asList("apollo", "agc", "aea");
     }
 }

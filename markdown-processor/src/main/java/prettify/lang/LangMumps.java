@@ -143,6 +143,6 @@ public class LangMumps extends Lang {
     }
 
     public static List<String> getFileExtensions() {
-        return Arrays.asList(new String[]{"mumps"});
+        return Arrays.asList("mumps");
     }
 }

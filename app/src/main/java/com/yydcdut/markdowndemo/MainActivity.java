@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle("RxMarkdown");
         findViewById(R.id.btn_edit_show).setOnClickListener(this);
@@ -27,14 +27,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_compare:
             case R.id.btn_compare_rx: {
                 Intent intent = new Intent(this, CompareActivity.class);
-                intent.putExtra("is_rx", (v.getId() == R.id.btn_compare) ? false : true);
+                intent.putExtra("is_rx", v.getId() != R.id.btn_compare);
                 startActivity(intent);
                 break;
             }
             case R.id.btn_edit_show:
             case R.id.btn_edit_show_rx: {
                 Intent intent = new Intent(this, EditActivity.class);
-                intent.putExtra("is_rx", (v.getId() == R.id.btn_edit_show) ? false : true);
+                intent.putExtra("is_rx", v.getId() != R.id.btn_edit_show);
                 startActivity(intent);
             }
             break;

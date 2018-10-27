@@ -123,13 +123,9 @@ public class ListSyntax implements Syntax {
     }
 
     private static boolean checkUnorderLegal(@NonNull String text) {
-        if (text.startsWith(SyntaxKey.KEY_UNORDER_LIST_ASTERISK)
-                || text.startsWith(SyntaxKey.KEY_UNORDER_LIST_PLUS)
-                || text.startsWith(SyntaxKey.KEY_UNORDER_LIST_HYPHEN)) {
-            return true;
-        } else {
-            return false;
-        }
+      return text.startsWith(SyntaxKey.KEY_UNORDER_LIST_ASTERISK)
+          || text.startsWith(SyntaxKey.KEY_UNORDER_LIST_PLUS)
+          || text.startsWith(SyntaxKey.KEY_UNORDER_LIST_HYPHEN);
     }
 
     private static int formatOrder(SpannableStringBuilder ssb, String line, ArrayList<ListBean> list, int lineIndex, int currentLinePosition) {

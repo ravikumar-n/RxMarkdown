@@ -69,6 +69,6 @@ public class LangLlvm extends Lang {
     }
 
     public static List<String> getFileExtensions() {
-        return Arrays.asList(new String[]{"llvm", "ll"});
+        return Arrays.asList("llvm", "ll");
     }
 }

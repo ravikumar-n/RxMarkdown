@@ -68,6 +68,6 @@ public class LangSql extends Lang {
     }
 
     public static List<String> getFileExtensions() {
-        return Arrays.asList(new String[]{"sql"});
+        return Arrays.asList("sql");
     }
 }

@@ -91,7 +91,7 @@ class CodeBlockSyntax implements Syntax {
                     ssb.replace(position - 1, position, " ");
                 }
                 ssb.setSpan(new MDCodeBlockSpan(mBackgroundColor,
-                                language, (j == 1 ? true : false), (j == middleList.size() - 1 ? true : false),
+                                language, (j == 1), (j == middleList.size() - 1),
                                 ssb.subSequence(TextHelper.safePosition(current, ssb), TextHelper.safePosition(position, ssb)).toString()),
                         current, position, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                 SyntaxUtils.marginSSBLeft(ssb, mIndentedSize, current, position);
